@@ -1,0 +1,97 @@
+Module-2: GIT Assignment - 2
+=============================
+
+Do the following tasks:
+● Create a git working directory with feature1.txt and feature2.txt in the master branch
+● Create 3 branches develop, feature1 and feature2
+● In develop branch create develop.txt, do not stage or commit it
+● Stash this file, and checkout to feature1 branch
+● Create new.txt file in feature1 branch, stage and commit this file
+● Checkout to develop, unstash this file and commit
+Please submit all the git commands used to do the above steps
+--------------------------------------------------------------------------------------------------
+
+Git $ mkdir git_assn2
+
+Git $ cd git_assn2/
+
+Git $ git init
+Initialized empty Git repository in C:/Users/User/git_assn2/.git/
+
+Git $ touch feature1.txt feature2.txt
+
+Git $ git add feature1.txt feature2.txt
+Git $ git commit -m "feature1 and feature2 added"
+[master (root-commit) 67a9df0] feature1 and feature2 added
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 feature1.txt
+ create mode 100644 feature2.txt
+
+Git $ git status
+On branch master
+nothing to commit, working tree clean
+
+Git $ git branch develop
+
+Git $ git branch feature1
+
+Git $ git branch feature2
+
+Git $ git branch
+  develop
+  feature1
+  feature2
+* master
+
+Git $ git switch develop
+Switched to branch 'develop'
+
+Git $ git branch
+* develop
+  feature1
+  feature2
+  master
+
+Git $ touch develop.txt
+
+Git $ git stash
+No local changes to save
+
+Git $ git switch feature1
+Switched to branch 'feature1'
+
+Git $ touch new.txt
+
+Git $ git add new.txt
+
+Git $ git commit -m "new file added in feature1 branch"
+[feature1 4a57736] new file added in feature1 branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new.txt
+
+Git $ git switch develop
+Switched to branch 'develop'
+
+Git $ git stash pop
+No stash entries found.
+
+Git $ git branch
+* develop
+  feature1
+  feature2
+  master
+
+Git $ git status
+On branch develop
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        develop.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Git $ git add develop.txt
+
+Git $ git commit -m "develop file committed in develop branch"
+[develop 049eca4] develop file committed in develop branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 develop.txt
